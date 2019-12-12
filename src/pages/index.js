@@ -1,20 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import NavCategories from "../components/navCategories"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <h1 className="text-3xl my-8">Catfan Goodies</h1>
+    <NavCategories />
+    <h2 className="text-lg">Willkommen zu unserem neuen Catfan Goodies Katalog!</h2>
+
+    <div className="my-8">
+      <p>Das ist ein Beispiel zur Erstellung eines Online Catalogs unter Verwendung einer csv-Datei.</p>
+      <p>Diese Seiten wurden für einen Vortrag bei einem Contao Austria Stammtisch erstellt. Die Produkte sind rein fiktiv.</p>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 
