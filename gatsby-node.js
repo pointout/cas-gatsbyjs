@@ -7,15 +7,22 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {     //  async (input) => { const graphql = input.graphql ...
+
     const { createPage } = actions  // const createPage = actions.createPage
-/*
+
+    // -------------------------------------------------------
+    // Variante 1 mit zusätzlicher graphql Abfrage im Template
+    // -------------------------------------------------------
+    /*
+
     // Create Detailpages from CSV 
-  const resultPages = await graphql (`
+    const resultPages = await graphql (`
         query {
             allCatfanshopCsv {
                 nodes {
                     Artikelnummer
-                    Bild
+                    Bild { relativePath }
+                    Warengruppe
                 }      
             }
         }
@@ -28,12 +35,17 @@ exports.createPages = async ({ graphql, actions }) => {     //  async (input) =>
             component: path.resolve(`./src/templates/catalog-detailpage.js`),
             context: {
                 ArtNr: node.Artikelnummer,
-                image: "products/" + node.Bild
+                image: node.Bild.relativePath
             }
         })
     }) 
-*/
-   // Create Detailpages from CSV
+    */
+
+    // ----------------------------------------------------------
+    // Variante 2 Übergabe aller relevanten Daten per pageContext
+    // ----------------------------------------------------------
+    
+    // Create Detailpages from CSV
     const resultPages = await graphql (`
         query {
             allCatfanshopCsv {

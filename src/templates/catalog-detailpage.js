@@ -3,8 +3,13 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+// -------------------------------------------
+// Variante 1 mit zusätzlicher graphql Abfrage
+// -------------------------------------------
 /*
 export default ({ data }) => {
+    console.log ("data: ",data)
     const item = data.text
     return (
         <Layout>
@@ -34,7 +39,7 @@ export default ({ data }) => {
     )
 }
 export const query = graphql`
-    query($ArtNr: String!,$image: String!) {
+    query($ArtNr: String!, $image: String!) {
         text: catfanshopCsv( Artikelnummer: { eq: $ArtNr } ) {
             Artikelnummer
             Bezeichnung
@@ -51,6 +56,10 @@ export const query = graphql`
     }
 `
 */
+
+// ----------------------------------------------------------
+// Variante 2 Übergabe aller relevanten Daten per pageContext
+// ----------------------------------------------------------
 export default ({ data, pageContext }) => {
     return (
         <Layout>
@@ -78,7 +87,7 @@ export default ({ data, pageContext }) => {
             </div>
         </Layout>
     )
-}
+} 
 export const query = graphql`
     query($image: String!) {
         bild: file(relativePath: { eq: $image }) {
