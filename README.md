@@ -9,4 +9,4 @@
 Online-Katalog in 30min" beim Contao Austria Stammtisch am 11.12.2019
 </h1>
 
-<p>Folien zum Vortrag: <a href="https://slides.pointout.at/gatsbyjs-online-katalog">https://slides.pointout.at/gatsbyjs-online-katalog</a>
+<p>Folien zum Vortrag: <a href="https://slides.pointout.at/gatsbyjs-online-katalog/">https://slides.pointout.at/gatsbyjs-online-katalog/</a>
